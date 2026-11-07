@@ -384,10 +384,11 @@ function buildClosed(){return [
  sobre:L('Fintech de consumo que ofrece compra a plazos y efectivo digital a personas en México.','Consumer fintech offering buy-now-pay-later and digital cash advances to people in Mexico.'),
  estr:L('Primera disposición de una línea de pagarés subordinados sin garantía. Los inversionistas reciben cupones semestrales en dólares y, al vencimiento, el capital más el último cupón.','First drawdown of a line of unsecured subordinated notes. Investors receive semiannual coupons in US dollars and, at maturity, the principal plus the last coupon.'),
  riesgos:L('Deuda subordinada y sin garantía: en un evento de incumplimiento, los acreedores senior cobran primero. El crédito al consumo es sensible al ciclo económico.','Subordinated, unsecured debt: in a default, senior creditors are paid first. Consumer credit is sensitive to the economic cycle.'),
+ tab:[['2027-02-28',7.5,0],['2027-08-31',7.5,0],['2028-02-29',7.5,0],['2028-08-31',7.5,0],['2029-02-28',7.5,0],['2029-08-31',7.5,1]],
  nota:L('El primer cupón vence el 28 de febrero de 2027; hasta hoy no hay pagos vencidos.','The first coupon is due on February 28, 2027; no payments are past due to date.')},
 {id:'zip',cod:'Zipolite',nombre:L('Zipolite Microcréditos','Zipolite Microlending'),sector:L('Fintech de microcréditos','Microlending fintech'),pais:L('México','Mexico'),
  desc:L('Línea revolvente de flujo de efectivo, subordinada, a una fintech de microcréditos para personas sin acceso a la banca','Revolving, subordinated cash-flow facility to a fintech making microloans to people underserved by banks'),
- g:['#0F1D28','#7D61BA'],cur:'MXN',monto:5000000,tasa:30,tasaTxt:L('30% anual fija, en pesos','30% fixed per year, in pesos'),plazoTxt:L('10 meses, revolvente','10 months, revolving'),pagos:L('Intereses mensuales','Monthly interest'),
+ g:['#0F1D28','#7D61BA'],cur:'MXN',monto:5000000,tasa:26,tasaTxt:L('26% anual fija, en pesos','26% fixed per year, in pesos'),plazoTxt:L('10 meses, revolvente','10 months, revolving'),pagos:L('Intereses mensuales','Monthly interest'),
  fondeo:L('Oct 2026','Oct 2026'),venc:L('31 ago 2027','Aug 31, 2027'),prim:'—',psub:L('Último día hábil de cada mes','Last business day of each month'),
  cal:L('Intereses mensuales, pagaderos el último día hábil de cada mes, sobre saldo y días reales con base de 360 días. Línea revolvente hasta el 31 may 2027; en los últimos 3 meses (jun, jul y ago 2027) el capital se amortiza en pagos mensuales iguales, y la línea vence el 31 ago 2027.','Monthly interest, payable on the last business day of each month, on actual days over a 360-day basis. Revolving until May 31, 2027; in the last 3 months (Jun, Jul and Aug 2027) principal amortizes in equal monthly payments, and the facility matures on Aug 31, 2027.'),
  inst:L('Línea de flujo de efectivo (revolvente), subordinada','Cash-flow facility (revolving), subordinated'),
@@ -732,7 +733,7 @@ function tabRates(){
  const S=sampleSeries(),lb=monthLabels(18,2026,9),lo=Math.floor(Math.min(...S.rate))-1,hi=Math.ceil(Math.max(...S.rate))+1,A=fd();
  return `${mkBar()}
  ${mcard(L('Tasa','Rate'),`<div class="lab" style="margin:0 0 4px">${L('Cupón promedio ponderado (% anual, en pesos)','Weighted average coupon (% per year, in pesos)')}</div>${mLine(lb,S.rate,lo,hi)}`,L('muestra ilustrativa','illustrative sample'))}
- <p class="sub" style="font-size:12.5px;margin:-6px 0 16px">${L('Serie de muestra para mostrar el formato. Los cupones reales hoy son 15% en dólares (Chacahua) y 30% en pesos (Zipolite).','Sample series to show the format. Today’s real coupons are 15% in US dollars (Chacahua) and 30% in pesos (Zipolite).')}</p>
+ <p class="sub" style="font-size:12.5px;margin:-6px 0 16px">${L('Serie de muestra para mostrar el formato. Los cupones reales hoy son 15% en dólares (Chacahua) y 26% en pesos (Zipolite).','Sample series to show the format. Today’s real coupons are 15% in US dollars (Chacahua) and 30% in pesos (Zipolite).')}</p>
  ${A.length?dealsTable(A,L('Operaciones','Deals')):noMatch()}`}
 function avgRatio(arr){return arr.length?N1(arr.reduce((a,x)=>a+x.ratio,0)/arr.length,2)+'x':'—'}
 function tabSyndication(){
@@ -1106,6 +1107,11 @@ function rDeal(id,tab){
  const fab=d.estado==='fondeo'?`<button class="fab" onclick="openOrder('${id}')">${L('Solicitar participación','Request participation')}</button>`:`<button class="fab" onclick="openOrder('${id}')">${L('Entrar a lista de espera','Join waitlist')}</button>`;
  return shell(head+top+body,'dl')+fab+'<div id="modal"></div>';
 }
+function payTab(c){
+ const U=1000000,f=0.9;let tg=0,tn=0;
+ const rows=c.tab.map(r=>{const i=U*r[1]/100,g=i+(r[2]?U:0),n=i*f+(r[2]?U:0);tg+=g;tn+=n;return `<tr><td>${fdate(r[0],0)}</td><td class="r">${N1(r[1]+(r[2]?100:0),1)}%</td><td class="r">US$${N1(g,0)}</td><td class="r"><b>US$${N1(n,0)}</b></td><td>${r[2]?L('Último cupón + capital','Last coupon + principal'):L('Pago de intereses','Interest payment')}</td></tr>`}).join('');
+ return `<div class="card scroll" style="margin:12px 0 6px"><table><tr><th>${L('Fecha','Date')}</th><th class="r">${L('% del capital','% of principal')}</th><th class="r">${L('Pago bruto','Gross payment')}</th><th class="r">${L('Pago neto (−10%)','Net payment (−10%)')}</th><th>${L('Concepto','Concept')}</th></tr>${rows}<tr><td><b>Total</b></td><td class="r"></td><td class="r"><b>US$${N1(tg,0)}</b></td><td class="r"><b>US$${N1(tn,0)}</b></td><td></td></tr></table></div><small class="na">${L('Por cada US$1,000,000 colocados. Fechas del pagaré firmado por el acreditado. El neto descuenta la comisión de servicio de 10% sobre el interés, no sobre el capital. Antes de impuestos.','Per US$1,000,000 placed. Dates from the promissory note signed by the borrower. The net amount deducts the 10% service fee on interest, not on principal. Before taxes.')}</small>`;
+}
 function rClosed(id){
  const c=CLOSED.find(x=>x.id===id);if(!c)return shell('<p>Not found.</p>','dl');
  const hv=(l,v,s)=>`<div><div class="lab">${l}</div><div class="v">${v}</div>${s?`<small>${s}</small>`:''}</div>`;
@@ -1120,7 +1126,7 @@ function rClosed(id){
  <div class="tile"><div class="lab">${L('Estado','Status')}</div><div class="n" style="font-size:22px;line-height:1.5">${L('Vigente','Outstanding')}</div><small>${L('Operación fondeada','Funded deal')}</small></div></div>
  <div class="card"><div class="fq"><h4 style="margin-top:0">${L('Acerca del acreditado','About the borrower')}</h4><p>${c.sobre}</p>
  <h4>${L('Instrumento y estructura','Instrument and structure')}</h4><p><b>${c.inst}.</b> ${c.estr}</p>
- <h4>${L('Calendario de pagos','Payment schedule')}</h4><p>${c.cal}</p>
+ <h4>${L('Calendario de pagos','Payment schedule')}</h4><p>${c.cal}</p>${c.tab?payTab(c):''}<p class="na" style="font-size:12.5px">${NETNOTE()}</p>
  <h4>${L('Desempeño','Performance')}</h4><p>${c.nota}</p>
  <h4>${L('Riesgos principales','Main risks')}</h4><p>${c.riesgos}</p></div></div>
  <div class="note">${L('Esta operación ya está fondeada y no admite nuevas solicitudes. Forma parte del historial de Aura.','This deal is already funded and no longer accepts requests. It is part of Aura’s track record.')} <a href="#/deals">${L('Ver operaciones abiertas','See open deals')} →</a></div>`,'dl');
@@ -1155,7 +1161,7 @@ function sendOrder(id){
  toast(L('Solicitud registrada (simulada). Verás la asignación al cierre del libro.','Request registered (simulated). You will see the allocation when the book closes.'));go('#/portfolio');
 }
 function rPort(){
- const pos=[{cod:'Zipolite',monto:1000000,tasa:30}];
+ const pos=[{cod:'Zipolite',monto:1000000,tasa:26}];
  const os=orders(),tot=pos.reduce((s,x)=>s+x.monto,0),pend=os.reduce((s,x)=>s+x.monto,0),tasaN=tot?NET(pos.reduce((s,x)=>s+x.monto*x.tasa,0)/tot):0,tasaB=tot?pos.reduce((s,x)=>s+x.monto*x.tasa,0)/tot:0;
  let prev=lastBD(2026,9);const sch=[0,1,2,3,4].map(i=>{const dt=lastBD(2026,10+i),days=Math.round((dt-prev)/864e5);prev=dt;const g=pos.reduce((a,x)=>a+x.monto*x.tasa/100*days/360,0);return {dt:ymd(dt),days,g,n:NET(g)}});
  const f=sch[0];

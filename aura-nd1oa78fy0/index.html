@@ -187,6 +187,9 @@ svg text{font-family:inherit}
 .mct h3{font:600 19px/1.25 "Playfair Display",Georgia,serif;margin:0}
 .mct .pill{margin-left:0;font-size:11px}
 .fbtn{padding:8px 14px}
+.fpanel{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px;margin:0 0 14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;align-items:end}
+.secf select{width:auto;max-width:100%}
+.fnote{font-size:12.5px;color:var(--mute);margin:0 0 12px}
 .kv{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-top:1px solid var(--line);font-size:14px}
 .kv span{color:var(--mute)}.kv b{font-weight:600;text-align:right}
 .donut{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
@@ -375,19 +378,21 @@ function buildClosed(){return [
 {id:'cha',cod:'Chacahua',nombre:L('Chacahua Fintech de Consumo','Chacahua Consumer Fintech'),sector:L('Fintech de consumo','Consumer fintech'),pais:L('México','Mexico'),
  desc:L('Pagarés subordinados sin garantía a una fintech de consumo que ofrece compra a plazos y efectivo digital','Unsecured subordinated note to a consumer fintech offering buy-now-pay-later and digital cash advances'),
  g:['#041421','#FFC000'],cur:'USD',monto:1000000,tasa:15,tasaTxt:L('15% anual en dólares','15% per year in US dollars'),plazoTxt:L('3 años','3 years'),pagos:L('Cupones semestrales','Semiannual coupons'),
- fondeo:L('31 ago 2026','Aug 31, 2026'),venc:L('Ago 2029','Aug 2029'),prim:L('Ene 2027','Jan 2027'),
+ fondeo:L('31 ago 2026','Aug 31, 2026'),venc:L('Ago 2029','Aug 2029'),prim:L('28 feb 2027','Feb 28, 2027'),psub:L('Primer cupón: 28 feb 2027','First coupon: Feb 28, 2027'),
+ cal:L('Cupones semestrales de 7.5% del monto colocado (US$75,000 por cada US$1,000,000), antes de la comisión de servicio de 10%: 28 feb 2027, 31 ago 2027, 29 feb 2028, 31 ago 2028 y 28 feb 2029. El 31 ago 2029, al vencimiento, se paga el capital más 7.5% (US$1,075,000 por cada US$1,000,000). El acreditado puede prepagar sin penalidad.','Semiannual coupons of 7.5% of the amount placed (US$75,000 per US$1,000,000), before the 10% service fee: Feb 28, 2027, Aug 31, 2027, Feb 29, 2028, Aug 31, 2028 and Feb 28, 2029. On Aug 31, 2029, at maturity, principal plus 7.5% is paid (US$1,075,000 per US$1,000,000). The borrower may prepay without penalty.'),
  inst:L('Pagaré a la orden, subordinado y sin garantía','Subordinated, unsecured promissory note'),
  sobre:L('Fintech de consumo que ofrece compra a plazos y efectivo digital a personas en México.','Consumer fintech offering buy-now-pay-later and digital cash advances to people in Mexico.'),
- estr:L('Primera disposición de una línea de pagarés subordinados sin garantía. El acreditado paga cupones semestrales en dólares y el capital al vencimiento.','First drawdown of a line of unsecured subordinated notes. The borrower pays semiannual coupons in US dollars and the principal at maturity.'),
+ estr:L('Primera disposición de una línea de pagarés subordinados sin garantía. Los inversionistas reciben cupones semestrales en dólares y, al vencimiento, el capital más el último cupón.','First drawdown of a line of unsecured subordinated notes. Investors receive semiannual coupons in US dollars and, at maturity, the principal plus the last coupon.'),
  riesgos:L('Deuda subordinada y sin garantía: en un evento de incumplimiento, los acreedores senior cobran primero. El crédito al consumo es sensible al ciclo económico.','Subordinated, unsecured debt: in a default, senior creditors are paid first. Consumer credit is sensitive to the economic cycle.'),
- nota:L('El primer cupón vence en enero de 2027; aún no hay pagos vencidos ni por vencer.','The first coupon is due in January 2027; no payments have fallen due yet.')},
+ nota:L('El primer cupón vence el 28 de febrero de 2027; hasta hoy no hay pagos vencidos.','The first coupon is due on February 28, 2027; no payments are past due to date.')},
 {id:'zip',cod:'Zipolite',nombre:L('Zipolite Microcréditos','Zipolite Microlending'),sector:L('Fintech de microcréditos','Microlending fintech'),pais:L('México','Mexico'),
  desc:L('Línea revolvente de flujo de efectivo, subordinada, a una fintech de microcréditos para personas sin acceso a la banca','Revolving, subordinated cash-flow facility to a fintech making microloans to people underserved by banks'),
- g:['#0F1D28','#7D61BA'],cur:'MXN',monto:5000000,tasa:30,tasaTxt:L('30% anual fija, en pesos','30% fixed per year, in pesos'),plazoTxt:L('12 meses, revolvente','12 months, revolving'),pagos:L('Intereses periódicos; capital al vencimiento','Periodic interest; principal at maturity'),
- fondeo:L('Oct 2026','Oct 2026'),venc:L('Ago 2027','Aug 2027'),prim:'—',
+ g:['#0F1D28','#7D61BA'],cur:'MXN',monto:5000000,tasa:30,tasaTxt:L('30% anual fija, en pesos','30% fixed per year, in pesos'),plazoTxt:L('10 meses, revolvente','10 months, revolving'),pagos:L('Intereses mensuales','Monthly interest'),
+ fondeo:L('Oct 2026','Oct 2026'),venc:L('31 ago 2027','Aug 31, 2027'),prim:'—',psub:L('Último día hábil de cada mes','Last business day of each month'),
+ cal:L('Intereses mensuales, pagaderos el último día hábil de cada mes, sobre saldo y días reales con base de 360 días. Línea revolvente hasta el 31 may 2027; en los últimos 3 meses (jun, jul y ago 2027) el capital se amortiza en pagos mensuales iguales, y la línea vence el 31 ago 2027.','Monthly interest, payable on the last business day of each month, on actual days over a 360-day basis. Revolving until May 31, 2027; in the last 3 months (Jun, Jul and Aug 2027) principal amortizes in equal monthly payments, and the facility matures on Aug 31, 2027.'),
  inst:L('Línea de flujo de efectivo (revolvente), subordinada','Cash-flow facility (revolving), subordinated'),
  sobre:L('Fintech que otorga microcréditos a personas con acceso limitado a la banca en México.','Fintech that makes microloans to people with limited access to banking in Mexico.'),
- estr:L('Línea revolvente subordinada al acreedor senior de la empresa.','Revolving facility subordinated to the company’s senior lender.'),
+ estr:L('Línea revolvente subordinada al acreedor senior de la empresa, con cobranza a través de un fideicomiso y una cuenta concentradora, y obligación solidaria de sociedades del grupo del acreditado.','Revolving facility subordinated to the company’s senior lender, with collections through a trust and a concentrator account, and joint obligation of group companies of the borrower.'),
  riesgos:L('Deuda subordinada: el acreedor senior cobra primero. Los microcréditos a personas sin acceso bancario tienen mayor mora y son sensibles al empleo y al ingreso.','Subordinated debt: the senior lender is paid first. Microloans to underbanked people carry higher delinquency and are sensitive to employment and income.'),
  nota:L('Línea revolvente vigente; sin incumplimientos de pago ni pagos vencidos.','Revolving facility in good standing; no payment defaults or past-due payments.')}
 ]}
@@ -618,19 +623,21 @@ function rDeals(tab){
 let BWV='list';
 function bwView(v){BWV=v;route()}
 function rBorrowers(){
- const rows=[...CLOSED.map(c=>({n:c.cod,d:c.desc,s:c.sector,p:c.pais,iss:CUR(c.cur,c.monto),out:CUR(c.cur,c.monto),di:1,dout:1,href:'#/closed/'+c.id})),
+ const all=[...CLOSED.map(c=>({n:c.cod,d:c.desc,s:c.sector,p:c.pais,iss:CUR(c.cur,c.monto),out:CUR(c.cur,c.monto),di:1,dout:1,href:'#/closed/'+c.id})),
  ...DEALS.map(d=>({n:d.cod,d:d.desc,s:d.tema,p:L('México','Mexico'),iss:MXN(0),out:MXN(0),di:0,dout:0,ill:1,href:'#/deal/'+d.id}))];
+ const secs=[...new Set(all.map(r=>r.s))],rows=all.filter(r=>(BF.kind==='all'||(BF.kind==='f'?!r.ill:!!r.ill))&&(BF.sec==='all'||r.s===BF.sec));
  const card=r=>`<div class="bwc"><div class="bwh"><div><a class="bwn" href="${r.href}">${r.n}</a>${r.ill?`<span class="pill">${L('ilustrativo','illustrative')}</span>`:''}</div><span class="bwlogo" title="${L('Nombre y logotipo reservados','Name and logo withheld')}">${r.n.slice(0,1)}</span></div>
   <p class="bwd">${r.d}</p>
   <div class="bwk">${[[L('Sector','Sector'),r.s],[L('País','Country'),r.p],[L('Total emitido','Total issued'),r.iss],[L('Principal vigente','Principal outstanding'),r.out],[L('Operaciones emitidas','Deals issued'),r.di],[L('Operaciones vigentes','Deals outstanding'),r.dout]].map(x=>`<div><span>${x[0]}</span><b>${x[1]}</b></div>`).join('')}</div></div>`;
  return shell(`<h1 class="pt">Borrowers</h1>
- <div class="bwbar">${filtBtn()}<span class="vt"><button class="${BWV==='list'?'on':''}" onclick="bwView('list')" aria-label="${L('Vista de lista','List view')}">&#9776;</button><button class="${BWV==='grid'?'on':''}" onclick="bwView('grid')" aria-label="${L('Vista de cuadrícula','Grid view')}">&#9638;</button></span></div>
- <div class="bwl ${BWV}">${rows.map(card).join('')}</div>
+ <div class="bwbar">${filtBtn('bw')}<span class="vt"><button class="${BWV==='list'?'on':''}" onclick="bwView('list')" aria-label="${L('Vista de lista','List view')}">&#9776;</button><button class="${BWV==='grid'?'on':''}" onclick="bwView('grid')" aria-label="${L('Vista de cuadrícula','Grid view')}">&#9638;</button></span></div>
+ ${fPanel('bw',rows.length,all.length,L('acreditados','borrowers'),secs)}
+ ${rows.length?`<div class="bwl ${BWV}">${rows.map(card).join('')}</div>`:`<div class="card"><p class="sub" style="margin:0">${L('Ningún acreditado coincide con los filtros.','No borrowers match the filters.')} <a onclick="fClear('bw')" style="cursor:pointer;text-decoration:underline">${L('Limpiar filtros','Clear filters')}</a></p></div>`}
  <p class="sub" style="font-size:12.5px">${L('Los nombres y logotipos de los acreditados se reservan. Los montos se muestran en la moneda de cada operación, sin conversión. Los acreditados marcados como ilustrativos corresponden a operaciones en oferta con cifras inventadas.','Borrower names and logos are withheld. Amounts are shown in each deal’s own currency, without conversion. Borrowers marked illustrative correspond to open deals with invented figures.')}</p>`,'bw');
 }
 
 /* ===== Markets (Percent anatomy): 6 tabs ===== */
-const MCLOSED_META={cha:{fin:['Pagaré sin garantía','Unsecured note'],plazo:36,cierra:'2026-08-31',mat:'2029-08-31',cur:['Dólar estadounidense','US dollar'],amort:['Al vencimiento','At maturity']},zip:{fin:['Línea de flujo de efectivo','Cash-flow facility'],plazo:12,cierra:null,mat:null,cur:['Peso mexicano','Mexican peso'],amort:['Al vencimiento','At maturity']}};
+const MCLOSED_META={cha:{fin:['Pagaré sin garantía','Unsecured note'],plazo:36,cierra:'2026-08-31',mat:'2029-08-31',cur:['Dólar estadounidense','US dollar'],amort:['Al vencimiento','At maturity']},zip:{fin:['Línea de flujo de efectivo','Cash-flow facility'],plazo:10,cierra:null,mat:'2027-08-31',cur:['Peso mexicano','Mexican peso'],amort:['3 pagos mensuales iguales (jun a ago 2027)','3 equal monthly payments (Jun to Aug 2027)']}};
 function allDeals(){
  const o=DEALS.map(d=>({id:d.id,cod:d.cod,nombre:d.nombre,href:'#/deal/'+d.id,fin:d.cat,size:d.obj,cur:'MXN',lo:d.banda[0],hi:d.banda[1],mid:(d.banda[0]+d.banda[1])/2,plazo:d.plazo,sen:'sen',est:d.estado==='asignando'?L('Asignando','Allocating'):L('Fondeo','Funding'),closed:false,raw:d,ratio:d.col/d.obj}));
  const c=CLOSED.map(x=>{const m=MCLOSED_META[x.id];return {id:x.id,cod:x.cod,nombre:x.nombre,href:'#/closed/'+x.id,fin:L(m.fin[0],m.fin[1]),size:x.monto,cur:x.cur,lo:x.tasa,hi:x.tasa,mid:x.tasa,plazo:m.plazo,sen:'sub',est:L('Fondeada','Funded'),closed:true,raw:x,meta:m}});
@@ -638,7 +645,35 @@ function allDeals(){
 }
 function mkTabs(tab){const t=[['outstanding',L('Vigente','Current outstanding')],['historical',L('Emisión histórica','Historical issuance')],['rates',L('Tasas','Rates')],['syndication',L('Subasta','Auction')],['comps',L('Comparables','Comps')],['calendar',L('Calendario','Deal calendar')]];
  return `<h1 class="pt" style="margin-top:26px">Markets</h1><div class="tabs">${t.map(x=>`<a class="${tab===x[0]?'on':''}" href="#/markets/${x[0]}">${x[1]}</a>`).join('')}</div>`}
-function filtBtn(){return `<button class="btnl fbtn" onclick="toast('${L('Prototipo: aquí filtrarías por tasa, plazo, prelación y estado','Prototype: here you would filter by rate, term, seniority and status')}')">${L('Filtros','Filters')} &#9662;</button>`}
+const FDEF={est:'all',cur:'all',tasa:'all',plazo:'all',sen:'all'},BDEF={kind:'all',sec:'all'};
+let MF=Object.assign({},FDEF),BF=Object.assign({},BDEF),FOPEN={};
+const fS=c=>c==='mk'?MF:BF,fD=c=>c==='mk'?FDEF:BDEF;
+function fSet(c,k,v){fS(c)[k]=v;keep(()=>{})}
+function fToggle(c){FOPEN[c]=!FOPEN[c];keep(()=>{})}
+function fClear(c){if(c==='mk')MF=Object.assign({},FDEF);else BF=Object.assign({},BDEF);keep(()=>{})}
+function fCount(c){return Object.keys(fD(c)).filter(k=>fS(c)[k]!==fD(c)[k]).length}
+function filtBtn(c){c=c||'mk';const n=fCount(c);return `<button class="btnl fbtn" aria-expanded="${!!FOPEN[c]}" onclick="fToggle('${c}')">${L('Filtros','Filters')}${n?' ('+n+')':''} ${FOPEN[c]?'&#9652;':'&#9662;'}</button>`}
+function fSel(c,k,label,opts){return `<div><label class="lab" for="f_${c}_${k}">${label}</label><select id="f_${c}_${k}" onchange="fSet('${c}','${k}',this.value)">${opts.map(o=>`<option value="${o[0]}" ${o[0]===fS(c)[k]?'selected':''}>${o[1]}</option>`).join('')}</select></div>`}
+function fFields(c,secs){
+ if(c==='mk')return fSel('mk','est',L('Estado','Status'),[['all',L('Todas','All')],['f',L('Fondeadas','Funded')],['o',L('Abiertas (ilustrativas)','Open (illustrative)')]])
+  +fSel('mk','cur',L('Moneda','Currency'),[['all',L('Todas','All')],['MXN',L('Pesos','Pesos')],['USD',L('Dólares','US dollars')]])
+  +fSel('mk','tasa',L('Cupón','Coupon'),[['all',L('Todos','All')],['0','< 15%'],['1','15–20%'],['2','20–25%'],['3','> 25%']])
+  +fSel('mk','plazo',L('Plazo','Term'),[['all',L('Todos','All')],['0',L('Hasta 12 meses','Up to 12 months')],['1',L('13 a 24 meses','13 to 24 months')],['2',L('Más de 24 meses','Over 24 months')]])
+  +fSel('mk','sen',L('Prelación','Seniority'),[['all',L('Todas','All')],['sen','Senior'],['sub',L('Subordinada','Subordinated')]]);
+ return fSel('bw','kind',L('Operaciones','Deals'),[['all',L('Todas','All')],['f',L('Con operaciones fondeadas','With funded deals')],['o',L('En oferta (ilustrativas)','In offering (illustrative)')]])
+  +fSel('bw','sec',L('Sector','Sector'),[['all',L('Todos','All')]].concat(secs.map(x=>[x,x])));
+}
+function fPanel(c,shown,total,what,secs){
+ const n=fCount(c);
+ return (FOPEN[c]?`<div class="fpanel">${fFields(c,secs||[])}<div><button class="btnl" onclick="fClear('${c}')" ${n?'':'disabled'}>${L('Limpiar filtros','Clear filters')}</button></div></div>`:'')
+  +(n?`<p class="fnote">${L('Filtros activos: mostrando '+shown+' de '+total+' '+what+'.','Active filters: showing '+shown+' of '+total+' '+what+'.')} <a onclick="fClear('${c}')" style="cursor:pointer;text-decoration:underline">${L('Limpiar','Clear')}</a></p>`:'');
+}
+const tasaB=x=>x.mid<15?0:x.mid<20?1:x.mid<25?2:3,plazoB=x=>x.plazo<=12?0:x.plazo<=24?1:2;
+function fd(){return allDeals().filter(x=>(MF.est==='all'||(MF.est==='f')===x.closed)&&(MF.cur==='all'||x.cur===MF.cur)&&(MF.tasa==='all'||tasaB(x)===+MF.tasa)&&(MF.plazo==='all'||plazoB(x)===+MF.plazo)&&(MF.sen==='all'||x.sen===MF.sen))}
+function mkBar(){const all=allDeals().length,sh=fd().length;return `<div style="margin:0 0 14px">${filtBtn('mk')}</div>${fPanel('mk',sh,all,L('operaciones','deals'))}`}
+const curSum=arr=>{const u=arr.filter(x=>x.cur==='USD').reduce((a,x)=>a+x.size,0),m=arr.filter(x=>x.cur==='MXN').reduce((a,x)=>a+x.size,0);return [u?USD(u):'',m?MXN(m):''].filter(Boolean).join('<br>')||'—'};
+const curAvg=(arr,f)=>['USD','MXN'].map(c=>{const a=arr.filter(x=>x.cur===c);return a.length?f(a,c):''}).filter(Boolean).join(' · ')||'—';
+const noMatch=()=>`<div class="card"><p class="sub" style="margin:0">${L('Ninguna operación coincide con los filtros.','No deals match the filters.')} <a onclick="fClear('mk')" style="cursor:pointer;text-decoration:underline">${L('Limpiar filtros','Clear filters')}</a></p></div>`;
 function keep(fn){const y=window.scrollY;fn();route();window.scrollTo(0,y)}
 const DC=['#0F1D28','#FFC000','#BB9500','#7D61BA','#8fa3b0','#5b6a75'];
 function donut(sl){sl=sl.filter(s=>s.v>0);const tot=sl.reduce((a,s)=>a+s.v,0)||1,R=62,C=2*Math.PI*R;let off=0,g='';
@@ -666,43 +701,48 @@ function dealsTable(rows,title,note){
  ${rows.map(x=>`<tr><td><a href="${x.href}">${x.nombre}</a></td><td>${x.fin}</td><td class="r">${CUR(x.cur,x.size)}</td><td class="r">${x.lo===x.hi?N1(x.lo,2)+'%':N1(x.lo,2)+'–'+N1(x.hi,2)+'%'}</td><td class="r">${x.plazo} ${L('meses','mo')}</td><td>${x.closed?`<span class="ok">${x.est}</span>`:`<span class="na">${x.est}</span>`}</td></tr>`).join('')}</table></div>
  <p class="sub" style="font-size:12.5px;margin:8px 0 0">${note||L('Incluye operaciones fondeadas (reales) y abiertas (ilustrativas). ','Includes funded (real) and open (illustrative) deals. ')}${cursNote()}</p></div>`}
 function tabOutstanding(){
- const A=allDeals(),cl=A.filter(x=>x.closed),n=A.length;
+ const A=fd(),cl=A.filter(x=>x.closed),nop=A.filter(x=>!x.closed).length,n=A.length;
  const bucket=(arr,fn,names)=>names.map((nm,i)=>({n:nm,v:arr.filter(x=>fn(x)===i).length}));
  const cp=bucket(A,x=>x.mid<15?0:x.mid<20?1:x.mid<25?2:3,['< 15%','15–20%','20–25%','> 25%']);
  const tm=bucket(A,x=>x.plazo<=12?0:x.plazo<=18?1:x.plazo<=24?2:3,[L('1–12 meses','1–12 months'),L('13–18 meses','13–18 months'),L('19–24 meses','19–24 months'),L('25+ meses','25+ months')]);
  const sn=bucket(A,x=>x.sen==='sen'?0:1,[L('Senior','Senior'),L('Subordinada','Subordinated')]);
  const ge=[{n:L('México','Mexico'),v:n}];
  const pill=L('incluye abiertas ilustrativas','includes illustrative open deals');
- return `<div style="margin:0 0 14px">${filtBtn()}</div>
- <div class="card"><div class="lab">${L('Principal vigente','Principal outstanding')}</div><div style="font:400 28px/1.3 'Playfair Display',Georgia,serif;margin-top:6px">US$1,000,000<br>$5,000,000 MXN</div><small class="na">${L('Operaciones fondeadas y vigentes. ','Funded, outstanding deals. ')}${cursNote()}</small></div>
- <div class="card"><div class="lab">${L('Operaciones','Deals')}</div><div style="font:400 28px/1.3 'Playfair Display',Georgia,serif;margin-top:6px">2</div><small class="na">${L('Con 2 acreditados · 0 incumplimientos de pago · '+DEALS.length+' más en oferta','Across 2 borrowers · 0 payment defaults · '+DEALS.length+' more in offering')}</small></div>
- ${kvCard(L('Estadísticas','Statistics'),[[L('Tamaño promedio','Avg deal size'),'US$1,000,000 · $5,000,000 MXN'],[L('Plazo promedio','Avg term'),'24 '+L('meses','months')],[L('Cupón promedio','Avg coupon rate'),'15.00% USD · 30.00% MXN']])}
+ const big=t=>`<div style="font:400 28px/1.3 'Playfair Display',Georgia,serif;margin-top:6px">${t}</div>`;
+ const avgT=cl.length?N1(cl.reduce((a,x)=>a+x.plazo,0)/cl.length,0)+' '+L('meses','months'):'—';
+ if(!n)return mkBar()+noMatch();
+ return `${mkBar()}
+ <div class="card"><div class="lab">${L('Principal vigente','Principal outstanding')}</div>${big(curSum(cl))}<small class="na">${L('Operaciones fondeadas y vigentes. ','Funded, outstanding deals. ')}${cursNote()}</small></div>
+ <div class="card"><div class="lab">${L('Operaciones fondeadas','Funded deals')}</div>${big(cl.length)}<small class="na">${L('Con '+cl.length+' acreditados · 0 incumplimientos de pago · '+nop+' abiertas en oferta (ilustrativas)','Across '+cl.length+' borrowers · 0 payment defaults · '+nop+' open in offering (illustrative)')}</small></div>
+ ${cl.length?kvCard(L('Estadísticas de las fondeadas','Funded-deal statistics'),[[L('Tamaño promedio','Avg deal size'),curAvg(cl,(a,c)=>CUR(c,a.reduce((t,x)=>t+x.size,0)/a.length))],[L('Plazo promedio','Avg term'),avgT],[L('Cupón promedio','Avg coupon rate'),curAvg(cl,(a,c)=>N1(a.reduce((t,x)=>t+x.lo,0)/a.length,2)+'% '+(c==='USD'?'USD':'MXN'))]]):''}
  ${mcard(L('Tasa del cupón','Coupon rate'),donut(cp),pill)}${mcard(L('Plazo','Term'),donut(tm),pill)}${mcard(L('Prelación','Seniority'),donut(sn),pill)}${mcard(L('Geografía del acreditado','Geography of borrower'),donut(ge),pill)}
  <p class="sub" style="font-size:12.5px">${L('Las gráficas cuentan operaciones, no montos, para no mezclar monedas.','Charts count deals, not amounts, so currencies are not mixed.')}</p>`}
 function tabHistorical(){
- const S=sampleSeries(),lb=monthLabels(18,2026,9),A=allDeals(),ill=L('muestra ilustrativa','illustrative sample');
- return `<div style="margin:0 0 14px">${filtBtn()}</div>
- <div class="card"><div class="lab">${L('Total emitido','Total issued')}</div><div style="font:400 28px/1.3 'Playfair Display',Georgia,serif;margin-top:6px">US$1,000,000<br>$5,000,000 MXN</div><small class="na">${L('2 operaciones emitidas','2 deals issued')}</small></div>
- ${kvCard(L('Estadísticas de operaciones','Deal stats'),[[L('Tamaño promedio','Avg deal size'),'US$1,000,000 · $5,000,000 MXN'],[L('Plazo promedio','Avg term'),'24 '+L('meses','months')],[L('Cupón promedio','Avg coupon rate'),'15.00% USD · 30.00% MXN']])}
+ const S=sampleSeries(),lb=monthLabels(18,2026,9),A=fd(),cl=A.filter(x=>x.closed),ill=L('muestra ilustrativa','illustrative sample');
+ const avgT=cl.length?N1(cl.reduce((a,x)=>a+x.plazo,0)/cl.length,0)+' '+L('meses','months'):'—';
+ return `${mkBar()}
+ <div class="card"><div class="lab">${L('Total emitido','Total issued')}</div><div style="font:400 28px/1.3 'Playfair Display',Georgia,serif;margin-top:6px">${curSum(cl)}</div><small class="na">${cl.length} ${L('operaciones emitidas','deals issued')}</small></div>
+ ${kvCard(L('Estadísticas de operaciones','Deal stats'),[[L('Tamaño promedio','Avg deal size'),curAvg(cl,(a,c)=>CUR(c,a.reduce((t,x)=>t+x.size,0)/a.length))],[L('Plazo promedio','Avg term'),avgT],[L('Cupón promedio','Avg coupon rate'),curAvg(cl,(a,c)=>N1(a.reduce((t,x)=>t+x.lo,0)/a.length,2)+'% '+(c==='USD'?'USD':'MXN'))]])}
  ${kvCard(L('Desempeño','Performance'),[[L('Principal total pagado','Total principal repaid'),'US$0 · $0 MXN'],[L('Operaciones liquidadas','Total deals repaid'),'0'],[L('Interés total pagado','Total interest paid'),'US$0 · $0 MXN'],[L('Incumplimiento de pago / castigo','Payment default / charge-off rate'),'<span class="ok">0.00% / 0.00%</span>']])}
- <p class="sub" style="font-size:12.5px;margin:-6px 0 16px">${L('Las dos operaciones se fondearon en 2026; el primer cupón vence en enero de 2027.','Both deals were funded in 2026; the first coupon is due in January 2027.')}</p>
+ <p class="sub" style="font-size:12.5px;margin:-6px 0 16px">${L('Las dos operaciones se fondearon en 2026. Chacahua paga su primer cupón el 28 de febrero de 2027; Zipolite paga intereses cada mes. Las estadísticas de arriba corresponden a las operaciones fondeadas que cumplen los filtros.','Both deals were funded in 2026. Chacahua pays its first coupon on February 28, 2027; Zipolite pays interest every month. The statistics above are for the funded deals that match the filters.')}</p>
  ${mcard(L('Emisión histórica','Historical issuance'),mBars(lb,S.iss,S.tr),ill)}
  <p class="sub" style="font-size:12.5px;margin:-6px 0 16px">${L('Serie de muestra para mostrar el formato. Hoy Aura tiene 2 operaciones fondeadas y vigentes; la gráfica se alimentará con datos reales conforme crezca el volumen.','Sample series to show the format. Today Aura has 2 funded, outstanding deals; the chart will fill with real data as volume grows.')}</p>
- ${dealsTable(A,L('Operaciones','Deals'))}`}
+ ${A.length?dealsTable(A,L('Operaciones','Deals')):noMatch()}`}
 function tabRates(){
- const S=sampleSeries(),lb=monthLabels(18,2026,9),lo=Math.floor(Math.min(...S.rate))-1,hi=Math.ceil(Math.max(...S.rate))+1;
- return `<div style="margin:0 0 14px">${filtBtn()}</div>
+ const S=sampleSeries(),lb=monthLabels(18,2026,9),lo=Math.floor(Math.min(...S.rate))-1,hi=Math.ceil(Math.max(...S.rate))+1,A=fd();
+ return `${mkBar()}
  ${mcard(L('Tasa','Rate'),`<div class="lab" style="margin:0 0 4px">${L('Cupón promedio ponderado (% anual, en pesos)','Weighted average coupon (% per year, in pesos)')}</div>${mLine(lb,S.rate,lo,hi)}`,L('muestra ilustrativa','illustrative sample'))}
  <p class="sub" style="font-size:12.5px;margin:-6px 0 16px">${L('Serie de muestra para mostrar el formato. Los cupones reales hoy son 15% en dólares (Chacahua) y 30% en pesos (Zipolite).','Sample series to show the format. Today’s real coupons are 15% in US dollars (Chacahua) and 30% in pesos (Zipolite).')}</p>
- ${dealsTable(allDeals(),L('Operaciones','Deals'))}`}
+ ${A.length?dealsTable(A,L('Operaciones','Deals')):noMatch()}`}
 function avgRatio(arr){return arr.length?N1(arr.reduce((a,x)=>a+x.ratio,0)/arr.length,2)+'x':'—'}
 function tabSyndication(){
- const o=allDeals().filter(x=>!x.closed);
+ const o=fd().filter(x=>!x.closed);
+ if(!o.length)return mkBar()+`<div class="card"><p class="sub" style="margin:0">${L('No hay operaciones abiertas que cumplan los filtros. La subasta solo aplica a operaciones abiertas.','No open deals match the filters. The auction only applies to open deals.')} <a onclick="fClear('mk')" style="cursor:pointer;text-decoration:underline">${L('Limpiar filtros','Clear filters')}</a></p></div>`;
  const cp=[['< 15%',x=>x.mid<15],['15–20%',x=>x.mid>=15&&x.mid<20],['> 20%',x=>x.mid>=20]].map(r=>[r[0],avgRatio(o.filter(r[1]))]);
  const tm=[[L('1–12 meses','1–12 months'),x=>x.plazo<=12],[L('13–24 meses','13–24 months'),x=>x.plazo>12&&x.plazo<=24],[L('25+ meses','25+ months'),x=>x.plazo>24]].map(r=>[r[0],avgRatio(o.filter(r[1]))]);
  const sn=[['Senior',avgRatio(o)],[L('Subordinada','Subordinated'),'—']];
  const tot=o.reduce((a,x)=>a+x.raw.col,0)/o.reduce((a,x)=>a+x.raw.obj,0);
- return `<div style="margin:0 0 14px">${filtBtn()}</div>
+ return `${mkBar()}
  ${kvCard(L('Por tasa del cupón','By coupon rate'),cp)}${kvCard(L('Por plazo','By term'),tm)}${kvCard(L('Por prelación','By seniority'),sn)}
  ${mcard(L('Subasta','Auction'),`<div class="lab" style="margin:0 0 4px">${L('Cobertura del libro por operación (veces el objetivo)','Order-book coverage by deal (times the target)')}</div>${svgBars(o.map(x=>x.cod),[{name:L('Cobertura','Coverage'),vals:o.map(x=>+x.ratio.toFixed(2)),color:'#0F1D28'}],{fmt:v=>N1(v,2)+'x'})}<div class="sub" style="font-size:12.5px;text-align:center">${L('Cobertura agregada: ','Aggregate coverage: ')}<b>${N1(tot,2)}x</b></div>`,L('operaciones abiertas, ilustrativo','open deals, illustrative'))}
  ${dealsTable(o,L('Operaciones en subasta','Deals in auction'),L('Solo operaciones abiertas (ilustrativas). ','Open (illustrative) deals only. '))}`}
@@ -726,7 +766,7 @@ function mkComps(){
  [L('Aforo inicial','Initial overcollateralization'),x=>x.closed||x.raw.tipo==='flujo'?NA:PCT(x.raw.aforo)],
  [L('Reserva de efectivo','Cash reserve'),x=>x.closed?D:x.raw.tipo==='flujo'?L('3 meses de servicio de deuda','3 months of debt service'):PCT(x.raw.reserva)],
  [L('Intereses capitalizables (PIK)','PIKable interest'),x=>'No'],
- [L('Fideicomiso o garantía registrada','Trust or registered security'),x=>x.closed?'No':x.raw.tipo==='flujo'?L('Prenda sobre acciones y obligación solidaria','Share pledge and joint obligation'):L('Sí (fideicomiso)','Yes (trust)')],
+ [L('Fideicomiso o garantía registrada','Trust or registered security'),x=>x.closed?(x.id==='zip'?L('Cobranza por fideicomiso y obligación solidaria de sociedades del grupo','Collections through a trust and joint obligation of group companies'):'No'):x.raw.tipo==='flujo'?L('Prenda sobre acciones y obligación solidaria','Share pledge and joint obligation'):L('Sí (fideicomiso)','Yes (trust)')],
  [L('Frecuencia de reporte','Anticipated reporting frequency'),x=>x.closed?D:L('Semanal','Weekly')]];
  const corp=[[L('Descripción del negocio','Business'),x=>x.closed?x.raw.sobre:x.raw.acred],[L('Año de fundación','Founded'),x=>x.closed?D:x.raw.fund],[L('País','Country'),x=>L('México','Mexico')]];
  const enh=[[L('Estructura','Structure'),x=>x.closed?x.raw.estr:x.raw.estr],[L('Aforo','Overcollateralization'),x=>x.closed||x.raw.tipo==='flujo'?NA:PCT(x.raw.aforo)],[L('Cobertura de pérdida','Loss coverage'),x=>x.closed||x.raw.tipo==='flujo'?NA:N1(cobert(x.raw),2)+'x']];
@@ -738,14 +778,18 @@ function mkComps(){
  <div class="card" style="padding:4px 16px">${acc(L('Resumen del acreditado','Corporate overview'),compTable(sel,corp),false)}${acc(L('Mejoras crediticias (solo respaldadas por cartera)','Credit enhancements (receivables-backed only)'),compTable(sel,enh),false)}${acc(L('Detalle de los activos (solo respaldadas por cartera)','Asset details (receivables-backed only)'),compTable(sel,ast),false)}${acc(L('Métricas de crédito (solo crédito corporativo)','Credit metrics (corporate loans only)'),compTable(sel,crd),false)}</div>`}
 /* ---- Deal calendar ---- */
 let CAL={y:2026,m:10,view:'cal'};
-const CCOL={close:'#0F1D28',fund:'#FFC000',pay:'#7D61BA',mat:'#15803d'};
+const CCOL={close:'#0F1D28',fund:'#FFC000',pay:'#7D61BA',cpn:'#0e7490',mat:'#15803d'};
+function lastBD(y,m){const d=new Date(y,m+1,0,12);while(d.getDay()===0||d.getDay()===6)d.setDate(d.getDate()-1);return d}
 function calGo(d){CAL.m+=d;if(CAL.m>11){CAL.m=0;CAL.y++}if(CAL.m<0){CAL.m=11;CAL.y--}keep(()=>{})}
 function calView(v){CAL.view=v;keep(()=>{})}
 function pad2(n){return String(n).padStart(2,'0')}
 function ymd(d){return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate())}
 function calEvents(){const ev=[];DEALS.forEach(d=>{const h='#/deal/'+d.id;ev.push({date:d.fin_,t:'fund',n:d.cod,href:h},{date:d.cierra,t:'close',n:d.cod,href:h},{date:addM(d.cierra,1),t:'pay',n:d.cod,href:h},{date:addM(d.cierra,d.plazo),t:'mat',n:d.cod,href:h}) });
- ev.push({date:'2026-08-31',t:'close',n:'Chacahua',href:'#/closed/cha'},{date:'2029-08-31',t:'mat',n:'Chacahua',href:'#/closed/cha'});return ev}
-function calTName(t){return {close:L('Cierre','Close'),fund:L('Fin del fondeo','Funding ends'),pay:L('Primer pago','First payment'),mat:L('Vencimiento','Maturity')}[t]}
+ ev.push({date:'2026-08-31',t:'close',n:'Chacahua',href:'#/closed/cha'},{date:'2029-08-31',t:'mat',n:'Chacahua',href:'#/closed/cha'});
+ ['2027-02-28','2027-08-31','2028-02-29','2028-08-31','2029-02-28'].forEach(x=>ev.push({date:x,t:'cpn',n:'Chacahua',href:'#/closed/cha'}));
+ for(let i=0;i<10;i++){const dt=ymd(lastBD(2026,10+i));ev.push({date:dt,t:'cpn',n:'Zipolite',href:'#/closed/zip'});if(i===9)ev.push({date:dt,t:'mat',n:'Zipolite',href:'#/closed/zip'})}
+ const ok=new Set(fd().map(x=>x.cod));return ev.filter(e=>ok.has(e.n))}
+function calTName(t){return {close:L('Cierre','Close'),fund:L('Fin del fondeo','Funding ends'),pay:L('Primer pago','First payment'),cpn:L('Pago de cupón o intereses','Coupon or interest payment'),mat:L('Vencimiento','Maturity')}[t]}
 function tabCalendar(){
  const ev=calEvents(),by={};ev.forEach(e=>(by[e.date]=by[e.date]||[]).push(e));
  const mn=MESESL()[CAL.m],title=mn.charAt(0).toUpperCase()+mn.slice(1)+' '+CAL.y;
@@ -756,10 +800,11 @@ function tabCalendar(){
  const legend=Object.keys(CCOL).map(t=>`<span><i style="background:${CCOL[t]}"></i>${calTName(t)}</span>`).join('');
  const inMonth=ev.filter(e=>e.date.slice(0,7)===CAL.y+'-'+pad2(CAL.m+1)).sort((a,b)=>a.date<b.date?-1:1);
  const list=inMonth.length?`<div class="card scroll"><table><tr><th>${L('Fecha','Date')}</th><th>${L('Evento','Event')}</th><th>${L('Operación','Deal')}</th></tr>${inMonth.map(e=>`<tr><td>${fdate(e.date,0)}</td><td><i class="dot" style="background:${CCOL[e.t]}"></i>${calTName(e.t)}</td><td><a href="${e.href}">${e.n}</a></td></tr>`).join('')}</table></div>`:`<p class="sub">${L('Sin eventos este mes.','No events this month.')}</p>`;
- return `<div class="calbar">${filtBtn()}<span class="vt"><button class="${CAL.view==='list'?'on':''}" onclick="calView('list')" aria-label="${L('Lista','List')}">&#9776; ${L('Lista','List')}</button><button class="${CAL.view==='cal'?'on':''}" onclick="calView('cal')" aria-label="${L('Calendario','Calendar')}">&#9638; ${L('Calendario','Calendar')}</button></span></div>
+ return `<div class="calbar">${filtBtn('mk')}<span class="vt"><button class="${CAL.view==='list'?'on':''}" onclick="calView('list')" aria-label="${L('Lista','List')}">&#9776; ${L('Lista','List')}</button><button class="${CAL.view==='cal'?'on':''}" onclick="calView('cal')" aria-label="${L('Calendario','Calendar')}">&#9638; ${L('Calendario','Calendar')}</button></span></div>
+ ${fPanel('mk',fd().length,allDeals().length,L('operaciones','deals'))}
  <div class="calhd"><div class="cnav"><button onclick="calGo(-1)" aria-label="${L('Mes anterior','Previous month')}">&lsaquo;</button><h3>${title}</h3><button onclick="calGo(1)" aria-label="${L('Mes siguiente','Next month')}">&rsaquo;</button></div><div class="lgd">${legend}</div></div>
  ${CAL.view==='cal'?`<div class="calg"><div class="wk">${wk.map(w=>`<div>${w}</div>`).join('')}</div><div class="cg">${cells}</div></div>`:list}
- <p class="sub" style="font-size:12.5px;margin-top:10px">${L('Fechas de las operaciones abiertas (ilustrativas) y de Chacahua. Los demás eventos de operaciones fondeadas se agregarán al confirmar sus fechas.','Dates for open (illustrative) deals and Chacahua. Other events for funded deals will be added once their dates are confirmed.')}</p>`}
+ <p class="sub" style="font-size:12.5px;margin-top:10px">${L('Fechas de las operaciones abiertas (ilustrativas) y pagos de las fondeadas: Chacahua, cupones semestrales (el primero el 28 feb 2027), y Zipolite, intereses el último día hábil de cada mes. Las fechas de Zipolite son estimadas con base en días hábiles de lunes a viernes, sin considerar días festivos.','Dates for open (illustrative) deals and payments on funded deals: Chacahua, semiannual coupons (the first on Feb 28, 2027), and Zipolite, interest on the last business day of each month. Zipolite dates are estimated on Monday–Friday business days, without considering holidays.')}</p>`}
 function rMarkets(tab){
  tab=tab||'outstanding';const P=mkParts(),home=tab==='outstanding';
  const body={outstanding:tabOutstanding,historical:tabHistorical,rates:tabRates,syndication:tabSyndication,comps:mkComps,calendar:tabCalendar}[tab]||tabOutstanding;
@@ -902,7 +947,8 @@ function creditStudy(d){
  <div class="fq"><h4>${L('Condiciones previas y obligaciones durante la vida del crédito','Conditions precedent and obligations during the life of the loan')}</h4>${li(cond)}<h4>${L('Pendientes de diligencia','Open diligence items')}</h4>${pend}
  <p class="sub" style="font-size:12.5px">${L('Estudio ilustrativo, con cifras inventadas del prototipo. Es la opinión de Aura como agente estructurador, que cobra por estructurar y administrar la operación (ver compensación y conflictos de interés). No es una garantía ni una recomendación personalizada.','Illustrative study, with invented prototype figures. It is the opinion of Aura as structuring agent, which is paid to structure and administer the deal (see compensation and conflicts of interest). It is not a guarantee or a personalized recommendation.')}</p></div>`;
 }
-let SEC={m:'all'};
+let SEC={m:'all',g:'all',o:'all'};
+function secPrice(c,y,n){const i=y/1200,v=1/(1+i),A=i?(1-Math.pow(v,n))/i:n;return c/12*A+100*Math.pow(v,n)}
 function secData(){const t=ymd(TODAY);return [
  {k:'hol',cod:'Holbox',tema:L('Factoraje de facturas a pequeñas empresas','Invoice factoring for small businesses'),gar:'c',cup:18,mat:addM(t,4),bid:19.8,ask:18.9},
  {k:'bac',cod:'Bacalar',tema:L('Crédito de nómina','Payroll lending'),gar:'c',cup:17,mat:addM(t,8),bid:null,ask:17.6},
@@ -911,15 +957,41 @@ function secData(){const t=ymd(TODAY);return [
  {k:'cab',cod:'Cabo Pulmo',tema:L('Crédito a distribuidor de autopartes','Loan to an auto-parts distributor'),gar:'a',cup:20,mat:addM(t,17),bid:21.2,ask:20.6}]}
 function secMon(r){const a=new Date(ymd(TODAY)+'T12:00:00'),b=new Date(r.mat+'T12:00:00');return (b.getFullYear()-a.getFullYear())*12+b.getMonth()-a.getMonth()}
 function tabSecondary(){
- const rows=secData().filter(r=>{const m=secMon(r);return SEC.m==='all'||(SEC.m==='6'&&m<=6)||(SEC.m==='12'&&m>6&&m<=12)||(SEC.m==='13'&&m>12)});
+ const rows=secData().filter(r=>{const m=secMon(r);return (SEC.m==='all'||(SEC.m==='6'&&m<=6)||(SEC.m==='12'&&m>6&&m<=12)||(SEC.m==='13'&&m>12))&&(SEC.g==='all'||r.gar===SEC.g)&&(SEC.o==='all'||(SEC.o==='b'&&r.bid!=null)||(SEC.o==='a'&&r.ask!=null))});
+ const yp=(r,v)=>v==null?'—':PCT(v)+`<br><small class="na">≈ ${N1(secPrice(r.cup,v,Math.max(1,secMon(r))),1)} ${L('por 100','per 100')}</small>`;
+ const ho=secData()[0],hn=Math.max(1,secMon(ho)),hb=secPrice(ho.cup,ho.bid,hn),ha=secPrice(ho.cup,ho.ask,hn);
  const gar=r=>r.gar==='c'?L('Cartera cedida','Assigned portfolio'):L('Prenda sobre acciones y obligación solidaria','Share pledge and joint obligation');
  const y=v=>v==null?'—':PCT(v);
  const mine=load('aura_ioi',[]);
  return `<div class="note" style="margin-top:14px"><b>${L('Demostración, sujeta a opinión legal.','Demonstration, subject to legal opinion.')}</b> ${L('El mercado secundario se habilitaría en una fase posterior. Las posiciones de la tabla son ejemplos ilustrativos con cifras inventadas, no operaciones reales.','The secondary market would be enabled in a later phase. The positions in the table are illustrative examples with invented figures, not real deals.')}</div>
- <div class="ptop" style="margin:14px 0 10px"><div><select id="secm" onchange="SEC.m=this.value;route()" aria-label="${L('Filtrar por vencimiento','Filter by maturity')}"><option value="all" ${SEC.m==='all'?'selected':''}>${L('Vencimiento: todos','Maturity: all')}</option><option value="6" ${SEC.m==='6'?'selected':''}>${L('Hasta 6 meses','Up to 6 months')}</option><option value="12" ${SEC.m==='12'?'selected':''}>${L('De 6 a 12 meses','6 to 12 months')}</option><option value="13" ${SEC.m==='13'?'selected':''}>${L('Más de 12 meses','Over 12 months')}</option></select></div><button class="btnp" onclick="openIOI()">${L('Enviar indicación de interés','Submit indication of interest')}</button></div>
- <div class="card scroll"><table><tr><th>${L('Operación','Deal')}</th><th>${L('Garantía','Collateral')}</th><th class="r">${L('Cupón','Coupon')}</th><th>${L('Vencimiento','Maturity')}</th><th class="r">${L('Mejor oferta de compra (rendimiento)','Best bid (yield)')}</th><th class="r">${L('Mejor oferta de venta (rendimiento)','Best ask (yield)')}</th></tr>
- ${rows.length?rows.map(r=>`<tr style="cursor:pointer" onclick="openIOI('${r.k}')"><td><b>${r.cod}</b><br><small class="na">${r.tema}</small></td><td>${gar(r)}</td><td class="r">${PCT(r.cup)}</td><td>${fdate(r.mat,1)}</td><td class="r">${y(r.bid)}</td><td class="r">${y(r.ask)}</td></tr>`).join(''):`<tr><td colspan="6" class="na">${L('No hay posiciones con ese vencimiento.','No positions with that maturity.')}</td></tr>`}</table></div>
- <p class="na" style="font-size:12.5px;margin:6px 0 16px">${L('Mostrando 1-'+rows.length+' de '+rows.length+' resultados. Rendimientos brutos, anualizados, calculados al vencimiento del crédito con la amortización esperada; “—” significa que no hay ofertas.','Showing 1-'+rows.length+' of '+rows.length+' results. Gross, annualized yields calculated to the loan’s maturity using expected amortization; “—” means there are no offers.')}</p>
+ <div class="ptop" style="margin:14px 0 10px;flex-wrap:wrap;gap:10px"><div class="secf" style="display:flex;gap:8px;flex-wrap:wrap"><select id="secm" onchange="SEC.m=this.value;route()" aria-label="${L('Filtrar por vencimiento','Filter by maturity')}"><option value="all" ${SEC.m==='all'?'selected':''}>${L('Vencimiento: todos','Maturity: all')}</option><option value="6" ${SEC.m==='6'?'selected':''}>${L('Hasta 6 meses','Up to 6 months')}</option><option value="12" ${SEC.m==='12'?'selected':''}>${L('De 6 a 12 meses','6 to 12 months')}</option><option value="13" ${SEC.m==='13'?'selected':''}>${L('Más de 12 meses','Over 12 months')}</option></select>
+ <select id="secg" onchange="SEC.g=this.value;route()" aria-label="${L('Filtrar por garantía','Filter by collateral')}"><option value="all" ${SEC.g==='all'?'selected':''}>${L('Garantía: todas','Collateral: all')}</option><option value="c" ${SEC.g==='c'?'selected':''}>${L('Cartera cedida','Assigned portfolio')}</option><option value="a" ${SEC.g==='a'?'selected':''}>${L('Prenda sobre acciones y obligación solidaria','Share pledge and joint obligation')}</option></select>
+ <select id="seco" onchange="SEC.o=this.value;route()" aria-label="${L('Filtrar por ofertas','Filter by offers')}"><option value="all" ${SEC.o==='all'?'selected':''}>${L('Ofertas: todas','Offers: all')}</option><option value="b" ${SEC.o==='b'?'selected':''}>${L('Con oferta de compra','With a bid')}</option><option value="a" ${SEC.o==='a'?'selected':''}>${L('Con oferta de venta','With an ask')}</option></select>${(SEC.m!=='all'||SEC.g!=='all'||SEC.o!=='all')?`<button class="btnl" onclick="SEC={m:'all',g:'all',o:'all'};route()">${L('Limpiar filtros','Clear filters')}</button>`:''}</div><button class="btnp" onclick="openIOI()">${L('Enviar indicación de interés','Submit indication of interest')}</button></div>
+ <div class="card scroll"><table><tr><th>${L('Operación','Deal')}</th><th>${L('Garantía','Collateral')}</th><th class="r">${L('Cupón del crédito','Loan coupon')}</th><th>${L('Vencimiento','Maturity')}</th><th class="r">${L('Mejor compra (rendimiento exigido)','Best bid (yield demanded)')}</th><th class="r">${L('Mejor venta (rendimiento dado)','Best ask (yield given)')}</th></tr>
+ ${rows.length?rows.map(r=>`<tr style="cursor:pointer" onclick="openIOI('${r.k}')"><td><b>${r.cod}</b><br><small class="na">${r.tema}</small></td><td>${gar(r)}</td><td class="r">${PCT(r.cup)}</td><td>${fdate(r.mat,1)}</td><td class="r">${yp(r,r.bid)}</td><td class="r">${yp(r,r.ask)}</td></tr>`).join(''):`<tr><td colspan="6" class="na">${L('No hay posiciones con esos filtros.','No positions match those filters.')}</td></tr>`}</table></div>
+ <p class="na" style="font-size:12.5px;margin:6px 0 16px">${L('Mostrando '+rows.length+' de '+secData().length+' posiciones. Rendimientos brutos y anualizados, aproximados: suponen cupón mensual y capital al vencimiento; “≈ X por 100” es el precio equivalente por cada 100 de saldo; “—” significa que no hay ofertas.','Showing '+rows.length+' of '+secData().length+' positions. Gross, annualized, approximate yields: they assume a monthly coupon and principal at maturity; “≈ X per 100” is the equivalent price per 100 of balance; “—” means there are no offers.')}</p>
+ <div class="card" style="padding:4px 16px">${acc(L('Cómo leer las ofertas: cupón, rendimiento y precio','How to read the offers: coupon, yield and price'),
+ `<p>${L('El <b>cupón</b> es la tasa que paga el crédito sobre su saldo (el valor nominal, que equivale a 100). El <b>rendimiento</b> de una oferta es lo que ganaría quien compra la posición al precio de esa oferta: cuenta el cupón y también la diferencia entre lo que paga y 100 hasta el vencimiento. Por eso el rendimiento puede ser distinto del cupón.','The <b>coupon</b> is the rate the loan pays on its balance (the face value, which equals 100). The <b>yield</b> of an offer is what the buyer would earn by buying the position at that offer’s price: it counts the coupon and also the difference between what is paid and 100 until maturity. That is why the yield can differ from the coupon.')}</p>
+ <ul style="margin:6px 0 10px 18px;padding:0;font-size:14px">
+ <li style="margin:5px 0">${L('Si compras por debajo de 100 (con descuento), ganas más que el cupón. Si pagas más de 100 (con prima), ganas menos. A precio 100, el rendimiento es igual al cupón.','If you buy below 100 (at a discount), you earn more than the coupon. If you pay more than 100 (at a premium), you earn less. At a price of 100, the yield equals the coupon.')}</li>
+ <li style="margin:5px 0">${L('<b>Oferta de compra (bid):</b> el rendimiento mínimo que exige quien quiere comprar. Mientras más alto lo pide, menos paga.','<b>Bid:</b> the minimum yield demanded by someone who wants to buy. The higher the yield asked, the less is paid.')}</li>
+ <li style="margin:5px 0">${L('<b>Oferta de venta (ask):</b> el rendimiento que recibiría el comprador al precio que pide el vendedor. Mientras más bajo, más caro vende.','<b>Ask:</b> the yield the buyer would receive at the price the seller asks. The lower it is, the higher the selling price.')}</li>
+ <li style="margin:5px 0">${L('<b>Coincidencia:</b> es posible cuando el rendimiento que exige el comprador es igual o menor que el que da el vendedor. En la tabla, el comprador siempre exige un poco más que lo que el vendedor da, así que todavía no hay coincidencia.','<b>Match:</b> possible when the yield the buyer demands is equal to or lower than the yield the seller gives. In the table, the buyer always demands a little more than the seller gives, so there is no match yet.')}</li></ul>
+ <div class="note" style="margin:6px 0 10px"><b>${L('Ejemplo con '+ho.cod,'Example with '+ho.cod)}</b><br>${L(ho.cod+' paga un cupón de '+PCT(ho.cup)+' y vence en '+hn+' meses. La oferta de compra de '+PCT(ho.bid)+' equivale a pagar ≈ '+N1(hb,1)+' por cada 100 de saldo. La oferta de venta de '+PCT(ho.ask)+' equivale a pedir ≈ '+N1(ha,1)+'. Hay '+N1(ha-hb,1)+' de diferencia: si el comprador sube su precio, o el vendedor lo baja, se puede concretar.',ho.cod+' pays a coupon of '+PCT(ho.cup)+' and matures in '+hn+' months. The bid of '+PCT(ho.bid)+' is equivalent to paying ≈ '+N1(hb,1)+' per 100 of balance. The ask of '+PCT(ho.ask)+' is equivalent to asking ≈ '+N1(ha,1)+'. There is a gap of '+N1(ha-hb,1)+': if the buyer raises the price, or the seller lowers it, a trade can happen.')}</div>
+ <p class="na" style="font-size:12.5px;margin:0">${L('Los rendimientos son brutos: no descuentan la comisión de servicio de 10% sobre el interés ni la comisión de 0.50% del mercado secundario. Las cifras son ilustrativas.','Yields are gross: they do not deduct the 10% service fee on interest or the 0.50% secondary-market fee. Figures are illustrative.')}</p>`,true)}
+ ${acc(L('Instrucciones para enviar una oferta','How to submit an offer'),
+ `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
+ <div><div class="lab" style="margin-bottom:4px">${L('Si quieres comprar','If you want to buy')}</div><ol style="margin:4px 0 0 18px;padding:0;font-size:14px">
+ <li style="margin:5px 0">${L('Toca una fila (o “Enviar indicación de interés”) y elige “Comprar una posición”.','Tap a row (or “Submit indication of interest”) and choose “Buy a position”.')}</li>
+ <li style="margin:5px 0">${L('Escribe el saldo que quieres comprar, en múltiplos de $100,000.','Enter the balance you want to buy, in multiples of $100,000.')}</li>
+ <li style="margin:5px 0">${L('Escribe el rendimiento mínimo que quieres ganar. Más alto: pagas menos, pero es menos probable que alguien venda. Para coincidir, escribe un número igual o menor que el mejor rendimiento de venta de la tabla.','Enter the minimum yield you want to earn. Higher: you pay less, but it is less likely that someone sells. To match, enter a number equal to or lower than the best ask yield in the table.')}</li>
+ <li style="margin:5px 0">${L('Revisa el precio y el importe aproximados, acepta y envía. Debes tener en tu cuenta efectivo equivalente a 10% del monto.','Check the approximate price and amount, accept and submit. You must hold cash equal to 10% of the amount in your account.')}</li></ol></div>
+ <div><div class="lab" style="margin-bottom:4px">${L('Si quieres vender','If you want to sell')}</div><ol style="margin:4px 0 0 18px;padding:0;font-size:14px">
+ <li style="margin:5px 0">${L('Toca una fila y elige “Vender una posición”. Solo puedes vender posiciones que ya tengas.','Tap a row and choose “Sell a position”. You can only sell positions you already hold.')}</li>
+ <li style="margin:5px 0">${L('Escribe el saldo que vendes, en múltiplos de $100,000.','Enter the balance you are selling, in multiples of $100,000.')}</li>
+ <li style="margin:5px 0">${L('Escribe el rendimiento que das al comprador. Más bajo: vendes más caro, pero es menos probable que alguien compre. Para coincidir, escribe un número igual o mayor que el mejor rendimiento de compra de la tabla.','Enter the yield you give the buyer. Lower: you sell at a higher price, but it is less likely that someone buys. To match, enter a number equal to or higher than the best bid yield in the table.')}</li>
+ <li style="margin:5px 0">${L('Revisa el precio y el importe aproximados, acepta y envía.','Check the approximate price and amount, accept and submit.')}</li></ol></div></div>
+ <p class="na" style="font-size:12.5px;margin:10px 0 0">${L('Aura registra tu indicación. Si hay coincidencia, te contacta y tramita la cesión, que requiere la aprobación de Aura. La indicación no es vinculante.','Aura records your indication. If there is a match, it contacts you and processes the assignment, which requires Aura’s approval. The indication is non-binding.')}</p>`,true)}</div>
  ${mine.length?`<h2>${L('Mis indicaciones de interés','My indications of interest')}</h2><div class="card scroll"><table><tr><th>${L('Operación','Deal')}</th><th>${L('Lado','Side')}</th><th class="r">${L('Monto','Amount')}</th><th class="r">${L('Rendimiento','Yield')}</th><th>${L('Estado','Status')}</th></tr>${mine.map(x=>`<tr><td>${x.cod}</td><td>${x.lado==='v'?L('Venta','Sell'):L('Compra','Buy')}</td><td class="r">${MXN(x.monto)}</td><td class="r">${PCT(x.y)}</td><td>${L('Registrada · no vinculante','Recorded · non-binding')}</td></tr>`).join('')}</table></div>`:''}
  <div class="card"><div class="lab" style="margin-bottom:6px">${L('Cómo funciona','How it works')}</div><ul style="margin:6px 0 0 18px;padding:0;font-size:14px">
  <li style="margin:5px 0">${L('Solo participan inversionistas calificados de la red de Angel Ventures invitados por Aura. Aura registra las indicaciones y, si hay coincidencia, tramita la cesión de la posición.','Only qualified investors from the Angel Ventures network invited by Aura take part. Aura records the indications and, if there is a match, processes the assignment of the position.')}</li>
@@ -932,13 +1004,26 @@ function openIOI(k){
  const rs=secData();
  document.getElementById('modal').innerHTML=`<div style="position:fixed;inset:0;background:rgba(4,20,33,.6);display:flex;align-items:center;justify-content:center;padding:16px;z-index:8" onclick="if(event.target===this)this.remove()">
  <div class="card" style="max-width:460px;width:100%;max-height:92vh;overflow:auto;margin:0"><h2 style="margin:0 0 4px">${L('Indicación de interés','Indication of interest')}</h2><p class="sub" style="font-size:13px;margin:0">${L('No es vinculante y no implica transferir recursos. Aura la registra y te contacta si hay una contraparte.','It is non-binding and does not involve transferring funds. Aura records it and contacts you if there is a counterparty.')}</p>
- <label class="l" for="io_d">${L('Operación','Deal')}</label><select id="io_d">${rs.map(r=>`<option value="${r.k}" ${r.k===k?'selected':''}>${r.cod} · ${PCT(r.cup)}</option>`).join('')}</select>
- <label class="l" for="io_l">${L('Lado','Side')}</label><select id="io_l"><option value="c">${L('Comprar una posición','Buy a position')}</option><option value="v">${L('Vender una posición','Sell a position')}</option></select>
- <label class="l" for="io_m">${L('Monto (múltiplos de $100,000)','Amount (multiples of $100,000)')}</label><input id="io_m" type="number" min="100000" step="100000" value="500000">
- <label class="l" for="io_y">${L('Rendimiento anual bruto que buscas (%)','Gross annual yield you are seeking (%)')}</label><input id="io_y" type="number" step="0.1" value="20">
+ <label class="l" for="io_d">${L('Operación','Deal')}</label><select id="io_d" onchange="ioCalc()">${rs.map(r=>`<option value="${r.k}" ${r.k===k?'selected':''}>${r.cod} · ${PCT(r.cup)}</option>`).join('')}</select>
+ <label class="l" for="io_l">${L('Lado','Side')}</label><select id="io_l" onchange="ioCalc()"><option value="c">${L('Comprar una posición','Buy a position')}</option><option value="v">${L('Vender una posición','Sell a position')}</option></select>
+ <label class="l" for="io_m">${L('Saldo (múltiplos de $100,000)','Balance (multiples of $100,000)')}</label><input id="io_m" type="number" min="100000" step="100000" value="500000" oninput="ioCalc()">
+ <label class="l" for="io_y" id="io_yl"></label><input id="io_y" type="number" step="0.1" value="20" oninput="ioCalc()">
+ <div class="calc" id="io_c"></div>
  <label class="l" style="display:flex;gap:8px;align-items:flex-start;color:var(--ink);font-size:13px"><input type="checkbox" id="io_k" onchange="document.getElementById('io_b').disabled=!this.checked" style="margin-top:3px"><span>${L('Entiendo que esta indicación no es vinculante, que no hay garantía de liquidez y que la posición está sujeta a restricciones de transferencia y a la aprobación de Aura.','I understand that this indication is non-binding, that there is no liquidity guarantee, and that the position is subject to transfer restrictions and Aura’s approval.')}</span></label>
  <div id="io_e" class="err"></div>
  <div style="display:flex;gap:10px;margin-top:14px"><button class="btnl" onclick="document.getElementById('modal').innerHTML=''">${L('Cancelar','Cancel')}</button><button class="btnp" id="io_b" onclick="sendIOI()" style="flex:1" disabled>${L('Enviar indicación','Submit indication')}</button></div></div></div>`;
+ ioCalc();
+}
+function ioCalc(){
+ const r=secData().find(x=>x.k===document.getElementById('io_d').value),l=document.getElementById('io_l').value,m=Number(document.getElementById('io_m').value)||0,y=Number(document.getElementById('io_y').value)||0,n=Math.max(1,secMon(r));
+ document.getElementById('io_yl').textContent=l==='c'?L('Rendimiento mínimo que quieres ganar (% anual bruto)','Minimum yield you want to earn (% per year, gross)'):L('Rendimiento que das al comprador (% anual bruto)','Yield you give the buyer (% per year, gross)');
+ const p=y>0?secPrice(r.cup,y,n):0,opp=l==='c'?r.ask:r.bid;let msg;
+ if(opp==null)msg=l==='c'?L('Hoy no hay ofertas de venta: tu indicación quedaría registrada esperando contraparte.','There are no asks today: your indication would be recorded awaiting a counterparty.'):L('Hoy no hay ofertas de compra: tu indicación quedaría registrada esperando contraparte.','There are no bids today: your indication would be recorded awaiting a counterparty.');
+ else{const ok=l==='c'?y<=opp:y>=opp;
+  msg=ok?L('Alcanza la mejor oferta contraria ('+PCT(opp)+'): posible coincidencia.','It reaches the best opposite offer ('+PCT(opp)+'): a match is possible.')
+   :l==='c'?L('Pides más rendimiento del que el vendedor da hoy ('+PCT(opp)+'): aún no coincide. Para coincidir, escribe '+PCT(opp)+' o menos.','You ask for more yield than the seller gives today ('+PCT(opp)+'): no match yet. To match, enter '+PCT(opp)+' or less.')
+   :L('Das menos rendimiento del que el comprador exige hoy ('+PCT(opp)+'): aún no coincide. Para coincidir, escribe '+PCT(opp)+' o más.','You give less yield than the buyer demands today ('+PCT(opp)+'): no match yet. To match, enter '+PCT(opp)+' or more.')}
+ document.getElementById('io_c').innerHTML=`<div><span>${L('Cupón del crédito · meses al vencimiento','Loan coupon · months to maturity')}</span><b>${PCT(r.cup)} · ${n}</b></div><div><span>${L('Precio equivalente (por cada 100 de saldo)','Equivalent price (per 100 of balance)')}</span><b>${y>0?'≈ '+N1(p,2):'—'}</b></div><div><span>${L('Importe aproximado','Approximate amount')}</span><b>${y>0?MXN(m*p/100):'—'}</b></div><div style="display:block;padding-top:6px"><span>${msg}</span></div>`;
 }
 function sendIOI(){
  const k=document.getElementById('io_d').value,m=Number(document.getElementById('io_m').value)||0,y=Number(document.getElementById('io_y').value)||0,e=document.getElementById('io_e');
@@ -949,6 +1034,7 @@ function sendIOI(){
  document.getElementById('modal').innerHTML='';toast(L('Indicación registrada (simulada). No es vinculante.','Indication recorded (simulated). It is non-binding.'));route();
 }
 const NET=r=>r*0.9;
+const NETNOTE=()=>L('Lo que recibes es el cupón menos la comisión de servicio de 10% (neto). La tasa que paga el acreditado puede ser mayor que tu cupón: Aura cobra además comisiones al acreditado y, en su caso, un diferencial de tasa que el acreditado paga después de tu cupón y que no se descuenta de lo que recibes.','What you receive is the coupon less the 10% service fee (net). The rate the borrower pays may be higher than your coupon: Aura also charges the borrower fees and, where applicable, a rate spread that the borrower pays after your coupon and that is not deducted from what you receive.');
 function tabOverview(d){
  const hl=`<div class="fq"><h4 style="margin-top:6px">${L('Historial con Aura','History with Aura')}</h4><p>${d.series}.</p><h4>${L('Negocio','Business')}</h4><p>${d.acred}</p><h4>${L('Estructura','Structure')}</h4><p>${d.estr}</p><h4>${L('Riesgos principales','Main risks')}</h4><p>${d.riesgos}</p></div>`;
  return `<div style="text-align:right;margin:4px 0"><a class="lab" style="cursor:pointer" onclick="allAcc(false)">${L('Ocultar todo','Hide all')}</a> &nbsp; <a class="lab" style="cursor:pointer" onclick="allAcc(true)">${L('Mostrar todo','Show all')}</a></div>
@@ -1012,9 +1098,9 @@ function rDeal(id,tab){
  const top=tab==='overview'?`<div class="card"><div style="font:400 21px/1.35 'Playfair Display',Georgia,serif;margin-bottom:14px">${d.desc}</div><div class="head">
  ${hv(L('Acreditado','Borrower'),d.cod,L('Nombre completo al firmar el acuerdo de confidencialidad','Full name after signing the non-disclosure agreement'))}${hv(L('Tipo de financiamiento','Financing type'),d.tipo==='flujo'?L('Prenda sobre acciones y obligación solidaria','Share pledge and joint obligation'):L('Garantía de cartera','Receivables collateral'))}${hv(L('Agente estructurador','Structuring agent'),'Aura')}
  ${hv(L('Fecha de cierre','Closing date'),fdate(d.cierra,1))}${hv(L('Fin del fondeo','Funding ends'),fdate(d.fin_,1),left(d.fin_))}${hv(L('Inversión mínima','Minimum investment'),'$100,000',L('En múltiplos de $100,000','In multiples of $100,000'))}
- ${hv(L('Tasa del cupón','Coupon'),'['+N1(d.banda[0],2)+' - '+N1(d.banda[1],2)+']%',L('Neto estimado ','Est. net ')+'['+N1(NET(d.banda[0]),2)+' - '+N1(NET(d.banda[1]),2)+']%')}${hv(L('Plazo de la inversión','Investment term'),d.plazo+' '+L('meses','months'),L('Vence el ','Matures ')+fdate(addM(d.cierra,d.plazo),1))}
+ ${hv(L('Tasa del cupón','Coupon'),'['+N1(d.banda[0],2)+' - '+N1(d.banda[1],2)+']%',L('Tú recibirías (neto) ','You would receive (net) ')+'['+N1(NET(d.banda[0]),2)+' - '+N1(NET(d.banda[1]),2)+']%')}${hv(L('Plazo de la inversión','Investment term'),d.plazo+' '+L('meses','months'),L('Vence el ','Matures ')+fdate(addM(d.cierra,d.plazo),1))}
  ${hv(L('Objetivo de la inversión','Investment target'),MXN(d.obj),p+L('% solicitado · ','% requested · ')+ratio(d)+L(' de cobertura',' coverage'))}</div>
- <div class="bigtrack" style="margin-top:18px"><i style="width:${Math.min(100,p)}%"></i></div></div>`:'';
+ <div class="bigtrack" style="margin-top:18px"><i style="width:${Math.min(100,p)}%"></i></div></div><p class="sub" style="font-size:12.5px;margin:-4px 0 12px">${NETNOTE()}</p>`:'';
  let body='';
  if(tab==='overview')body=tabOverview(d);else if(tab==='docs')body=tabData(d);else if(tab==='comps')body=tabComps(d);else if(tab==='libro')body=tabBook(d);else body=tabRep(d);
  const fab=d.estado==='fondeo'?`<button class="fab" onclick="openOrder('${id}')">${L('Solicitar participación','Request participation')}</button>`:`<button class="fab" onclick="openOrder('${id}')">${L('Entrar a lista de espera','Join waitlist')}</button>`;
@@ -1028,12 +1114,13 @@ function rClosed(id){
  <div class="card"><div style="font:400 21px/1.35 'Playfair Display',Georgia,serif;margin-bottom:14px">${c.desc}</div><div class="head">
  ${hv(L('Acreditado','Borrower'),c.cod,L('Nombre reservado','Name withheld'))}${hv('Sector',c.sector)}${hv(L('País','Country'),c.pais)}
  ${hv(L('Monto colocado','Amount funded'),CUR(c.cur,c.monto))}${hv(L('Tasa del cupón','Coupon'),c.tasaTxt)}${hv(L('Plazo','Term'),c.plazoTxt)}
- ${hv(L('Fecha de fondeo','Funded'),c.fondeo)}${hv(L('Vencimiento','Maturity'),c.venc)}${hv(L('Pagos','Payments'),c.pagos,c.prim!=='—'?L('Primer cupón: ','First coupon: ')+c.prim:'')}</div></div>
+ ${hv(L('Fecha de fondeo','Funded'),c.fondeo)}${hv(L('Vencimiento','Maturity'),c.venc)}${hv(L('Pagos','Payments'),c.pagos,c.psub)}</div></div>
  <div class="trk3"><div class="tile z"><div class="lab">${L('Incumplimientos de pago','Payment defaults')}</div><div class="n">0</div><small>${L('Desde el fondeo','Since funding')}</small></div>
  <div class="tile z"><div class="lab">${L('Pagos vencidos','Past-due payments')}</div><div class="n">0</div><small>${L('Al corriente','Performing')}</small></div>
  <div class="tile"><div class="lab">${L('Estado','Status')}</div><div class="n" style="font-size:22px;line-height:1.5">${L('Vigente','Outstanding')}</div><small>${L('Operación fondeada','Funded deal')}</small></div></div>
  <div class="card"><div class="fq"><h4 style="margin-top:0">${L('Acerca del acreditado','About the borrower')}</h4><p>${c.sobre}</p>
  <h4>${L('Instrumento y estructura','Instrument and structure')}</h4><p><b>${c.inst}.</b> ${c.estr}</p>
+ <h4>${L('Calendario de pagos','Payment schedule')}</h4><p>${c.cal}</p>
  <h4>${L('Desempeño','Performance')}</h4><p>${c.nota}</p>
  <h4>${L('Riesgos principales','Main risks')}</h4><p>${c.riesgos}</p></div></div>
  <div class="note">${L('Esta operación ya está fondeada y no admite nuevas solicitudes. Forma parte del historial de Aura.','This deal is already funded and no longer accepts requests. It is part of Aura’s track record.')} <a href="#/deals">${L('Ver operaciones abiertas','See open deals')} →</a></div>`,'dl');
@@ -1046,6 +1133,7 @@ function openOrder(id){
  <label class="l" for="om">${L('Monto (múltiplos de $100,000)','Amount (multiples of $100,000)')}</label><input id="om" type="number" min="100000" step="100000" value="500000" oninput="calcOrder('${id}')">
  <label class="l" for="ot">${L('Tasa mínima que aceptas','Minimum rate you accept')}</label><select id="ot" onchange="calcOrder('${id}')">${book(d).steps.map(r=>`<option value="${r}">${N1(r,2)}%</option>`).join('')}</select>
  <div class="calc" id="oc"></div>
+ <p class="sub" style="font-size:12px;margin:8px 0 0">${NETNOTE()}</p>
  <label class="l" style="display:flex;gap:8px;align-items:flex-start;color:var(--ink);font-size:13px"><input type="checkbox" id="ok" onchange="calcOrder('${id}')" style="margin-top:3px"><span>${L('Declaro que soy inversionista calificado invitado por Aura; que esta oferta se me presentó de forma privada; que actúo por mi cuenta, con recursos de procedencia lícita; que entiendo que puedo perder todo o parte del capital, que no hay garantía ni liquidez asegurada; y que mi solicitud queda sujeta a la documentación definitiva y a la aprobación de Aura.','I declare that I am a qualified investor invited by Aura; that this offer was presented to me privately; that I act for my own account, with funds of lawful origin; that I understand I may lose all or part of my capital and that there is no guarantee or assured liquidity; and that my request is subject to final documentation and Aura’s approval.')}</span></label>
  <div id="oe" class="err"></div>
  <div style="display:flex;gap:10px;margin-top:14px"><button class="btnl" onclick="document.getElementById('modal').innerHTML=''">${L('Cancelar','Cancel')}</button><button class="btnp" id="ob" onclick="sendOrder('${id}')" style="flex:1" disabled>${L('Enviar solicitud','Submit request')}</button></div></div></div>`;
@@ -1068,17 +1156,19 @@ function sendOrder(id){
 }
 function rPort(){
  const pos=[{cod:'Zipolite',monto:1000000,tasa:30}];
- const os=orders(),tot=pos.reduce((s,x)=>s+x.monto,0),pend=os.reduce((s,x)=>s+x.monto,0),men=pos.reduce((s,x)=>s+x.monto*x.tasa/1200,0),menN=NET(men),tasaN=tot?NET(pos.reduce((s,x)=>s+x.monto*x.tasa,0)/tot):0,tasaB=tot?pos.reduce((s,x)=>s+x.monto*x.tasa,0)/tot:0;
+ const os=orders(),tot=pos.reduce((s,x)=>s+x.monto,0),pend=os.reduce((s,x)=>s+x.monto,0),tasaN=tot?NET(pos.reduce((s,x)=>s+x.monto*x.tasa,0)/tot):0,tasaB=tot?pos.reduce((s,x)=>s+x.monto*x.tasa,0)/tot:0;
+ let prev=lastBD(2026,9);const sch=[0,1,2,3,4].map(i=>{const dt=lastBD(2026,10+i),days=Math.round((dt-prev)/864e5);prev=dt;const g=pos.reduce((a,x)=>a+x.monto*x.tasa/100*days/360,0);return {dt:ymd(dt),days,g,n:NET(g)}});
+ const f=sch[0];
  const k=(l,v,s)=>`<div class="card" style="margin:0"><div class="lab">${l}</div><div style="font:400 24px 'Playfair Display',Georgia,serif;margin-top:4px">${v}</div><small class="na">${s||''}</small></div>`;
  const stl=o=>o.st==='wait'?L('En lista de espera','On waitlist'):L('En libro (pendiente de asignación)','In book (pending allocation)');
  const nm=o=>{const d=DEALS.find(x=>x.id===o.deal);return d?d.nombre:o.deal};
- const mn=['Nov 2026','Dic 2026','Ene 2027','Feb 2027','Mar 2027'].map(s=>LANG==='en'?s.replace('Dic','Dec').replace('Ene','Jan').replace('Feb','Feb'):s);
  return shell(`<h1 class="pt">${L('Mi portafolio','My portfolio')}</h1>
- <div class="deals" style="grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px">${k(L('Invertido','Invested'),MXN(tot),L('Posición de ejemplo','Sample position'))}${k(L('En solicitudes pendientes','In pending requests'),MXN(pend))}${k(L('Interés neto estimado al mes','Estimated net interest per month'),MXN(menN),L('Bruto ','Gross ')+MXN(men))}${k(L('Rendimiento neto estimado','Estimated net yield'),PCT(tasaN),L('Cupón bruto ','Gross coupon ')+PCT(tasaB))}</div>
- <p class="sub" style="font-size:13px;margin:10px 0 0">${L('Neto = cupón menos la comisión de servicio de Aura (10% del interés efectivamente cobrado), antes de impuestos. Es una estimación: el interés real depende de la cobranza de cada operación.','Net = coupon less Aura’s service fee (10% of interest actually collected), before taxes. It is an estimate: actual interest depends on each deal’s collections.')}</p>
+ <div class="deals" style="grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px">${k(L('Invertido','Invested'),MXN(tot),L('Posición de ejemplo','Sample position'))}${k(L('En solicitudes pendientes','In pending requests'),MXN(pend))}${k(L('Próximo pago neto estimado','Next estimated net payment'),MXN(f.n),L('Bruto ','Gross ')+MXN(f.g)+' · '+fdate(f.dt,0))}${k(L('Rendimiento neto anual estimado','Estimated net annual yield'),PCT(tasaN),L('Cupón bruto ','Gross coupon ')+PCT(tasaB))}</div>
+ <div class="note" style="margin-top:12px"><b>${L('Cómo se calcula el próximo pago','How the next payment is calculated')}</b><br>${MXN(pos[0].monto)} × ${pos[0].tasa}% × ${f.days} ${L('días','days')} ÷ 360 = <b>${MXN(f.g)}</b> ${L('bruto','gross')}; ${L('menos 10% de comisión de servicio','less 10% service fee')} (${MXN(f.g*0.1)}) = <b>${MXN(f.n)}</b> ${L('neto','net')}.<br><span class="na">${L('El interés se calcula sobre los días reales de cada período con base de 360 días y se paga el último día hábil del mes, por eso el monto cambia cada mes. Es una estimación, antes de impuestos; el interés real depende de la cobranza.','Interest is calculated on the actual days of each period over a 360-day basis and is paid on the last business day of the month, so the amount changes each month. It is an estimate, before taxes; actual interest depends on collections.')}</span></div>
+ <p class="sub" style="font-size:13px;margin:10px 0 0">${NETNOTE()}</p>
  <h2>${L('Posiciones','Positions')} <span class="pill">${L('ejemplo ilustrativo','illustrative sample')}</span></h2><div class="card scroll"><table><tr><th>${L('Operación','Deal')}</th><th class="r">${L('Monto','Amount')}</th><th class="r">${L('Cupón bruto','Gross coupon')}</th><th class="r">${L('Rendimiento neto','Net yield')}</th><th>${L('Estado','Status')}</th></tr>${pos.map(x=>`<tr><td><a href="#/closed/zip">${x.cod}</a></td><td class="r">${MXN(x.monto)}</td><td class="r">${PCT(x.tasa)}</td><td class="r"><b>${PCT(NET(x.tasa))}</b></td><td class="ok">${L('Vigente · al corriente','Outstanding · performing')}</td></tr>`).join('')}</table></div>
  <h2>${L('Solicitudes en libro','Requests in book')}</h2>${os.length?`<div class="card scroll"><table><tr><th>${L('Operación','Deal')}</th><th class="r">${L('Monto','Amount')}</th><th class="r">${L('Tasa mínima bruta','Min gross rate')}</th><th class="r">${L('Neto mínimo','Min net')}</th><th>${L('Estado','Status')}</th></tr>${os.map(x=>`<tr><td>${nm(x)}</td><td class="r">${MXN(x.monto)}</td><td class="r">${PCT(x.tasaMin)}</td><td class="r"><b>${PCT(NET(x.tasaMin))}</b></td><td>${stl(x)}</td></tr>`).join('')}</table></div><button class="btnl" onclick="resetDemo()">${L('Reiniciar demostración','Reset demo')}</button>`:`<p class="sub">${L('Aún no tienes solicitudes. Ve a Deals y envía una.','You have no requests yet. Go to Deals and submit one.')}</p>`}
- <h2>${L('Próximos cupones','Upcoming coupons')} <span class="pill">${L('ejemplo ilustrativo','illustrative sample')}</span></h2><div class="cal">${mn.map(m=>`<div><small class="na">${m}</small><br><b>${MXN(menN)}</b><br><small class="na">${L('bruto ','gross ')}${MXN(men)}</small></div>`).join('')}</div>`,'pf');
+ <h2>${L('Próximos pagos de intereses','Upcoming interest payments')} <span class="pill">${L('ejemplo ilustrativo','illustrative sample')}</span></h2><div class="cal">${sch.map(m=>`<div><small class="na">${fdate(m.dt,0)}</small><br><b>${MXN(m.n)}</b><br><small class="na">${L('bruto ','gross ')}${MXN(m.g)} · ${m.days} ${L('días','days')}</small></div>`).join('')}</div>`,'pf');
 }
 
 function fondeoInfo(){
